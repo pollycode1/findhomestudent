@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
 import '../models/student.dart';
 import '../services/database_service.dart';
 import 'add_student_screen.dart';
@@ -335,22 +334,13 @@ class _StudentListScreenState extends State<StudentListScreen> {
                             child: ListTile(
                               leading: CircleAvatar(
                                 backgroundColor: Theme.of(context).colorScheme.primary,
-                                child: student.profileImagePath != null
-                                    ? ClipOval(
-                                        child: Image.file(
-                                          File(student.profileImagePath!),
-                                          width: 40,
-                                          height: 40,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      )
-                                    : Text(
-                                        student.name.isNotEmpty ? student.name[0].toUpperCase() : '?',
-                                        style: TextStyle(
-                                          color: Theme.of(context).colorScheme.onPrimary,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                                child: Text(
+                                  student.name.isNotEmpty ? student.name[0].toUpperCase() : '?',
+                                  style: TextStyle(
+                                    color: Theme.of(context).colorScheme.onPrimary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
                               title: Text(student.name),
                               subtitle: Column(
